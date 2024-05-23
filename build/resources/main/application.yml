@@ -1,3 +1,12 @@
 tru-proxy:
   endpoint-uri: https://exercise.trunarrative.cloud/TruProxyAPI/rest/Companies/v1
   api-key: PwewCEztSW7XlaAKqkg4IaOsPelGynw6SN9WsbNf
+spring:
+  sql:
+    init:
+      mode: always
+  datasource:
+    username: truproxy
+    password: truproxy
+    url: jdbc:postgresql://localhost:5432/truproxy
+    driverClassName: org.postgresql.Driver

@@ -1,7 +1,7 @@
 package com.exercise.TruProxyAPI.controller;
 
 
-import com.exercise.TruProxyAPI.proxyDto.TruProxyCompanyItemDto;
+import com.exercise.TruProxyAPI.proxyDto.TruProxyOfficerItemDto;
 import com.exercise.TruProxyAPI.service.TruProxyCallService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +20,7 @@ public class LookupController {
     }
 
     @GetMapping("/test")
-    public List<TruProxyCompanyItemDto> test() {
-        return proxyCallService.findCompanies("BBC LIMITED");
+    public List<TruProxyOfficerItemDto> test() {
+        return proxyCallService.findOfficers("06500244");
     }
 }

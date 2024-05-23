@@ -174,4 +174,10 @@ Example: curl -s -H 'x-api-key: xxxxxxxxxxxxx' "https://exercise.trunarrative.cl
 
 ## Flow
 
+
+## Running Postgres Container
+$ docker run --name pg-truproxy -p 5432:5432 -e POSTGRES_USER=truproxy -e POSTGRES_PASSWORD=truproxy -e POSTGRES_DB=truproxy -d postgres:15-alpine
+
 ![Wireframe](https://raw.githubusercontent.com/TruNarrative/spring-exercise/main/spring_exercise.png)
+
+
