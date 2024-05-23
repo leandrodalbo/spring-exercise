@@ -1,0 +1,8 @@
+**/.gradle
+**/.idea
+**/.tmp
+**/caches
+**/daemon
+**/jdks
+**/native
+**/wrapper
