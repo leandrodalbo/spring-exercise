@@ -1,6 +1,6 @@
 tru-proxy:
   endpoint-uri: https://exercise.trunarrative.cloud/TruProxyAPI/rest/Companies/v1
-  api-key: 
+  api-key:
 spring:
   sql:
     init:
