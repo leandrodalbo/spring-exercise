@@ -8,14 +8,11 @@ import com.exercise.TruProxyAPI.proxyDto.TruProxyOfficerItemDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.Objects;
 
 @Service
 public class TruProxyCallService {
-
-    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(3);
 
     private final WebClient webClient;
     private final TrueProxyConf trueProxyConf;
@@ -26,22 +23,30 @@ public class TruProxyCallService {
     }
 
     public List<TruProxyCompanyItemDto> findCompanies(String input) {
-        return Objects.requireNonNull(webClient
+
+        var result = webClient
                 .get()
                 .uri("/Search?Query=" + input)
                 .header("x-api-key", trueProxyConf.apiKey())
                 .retrieve()
                 .bodyToMono(TruProxyCompanyDto.class)
-                .block(REQUEST_TIMEOUT)).items();
+                .block();
+
+        var items = Objects.requireNonNull(result).items();
+
+        return items;
     }
 
     public List<TruProxyOfficerItemDto> findOfficers(String company) {
-        return Objects.requireNonNull(webClient
+        var results = webClient
                 .get()
                 .uri("/Officers?CompanyNumber=" + company)
                 .header("x-api-key", trueProxyConf.apiKey())
                 .retrieve()
                 .bodyToMono(TruProxyOfficerDto.class)
-                .block(REQUEST_TIMEOUT)).items();
+                .block();
+
+        var items = Objects.requireNonNull(results).items().stream().filter(officerItemDto -> officerItemDto.resigned_on() == null).toList();
+        return items;
     }
 }

@@ -6,4 +6,11 @@
 **/jdks
 **/native
 **/wrapper
-**/build
+**/build/*
+**/build/classes/
+**/workers/
+**/build/libs/
+**/build/reports
+**/build/test-results
+**/build/tmp
+**/*.class

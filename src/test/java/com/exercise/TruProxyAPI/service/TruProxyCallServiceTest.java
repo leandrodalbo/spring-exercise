@@ -62,7 +62,7 @@ public class TruProxyCallServiceTest {
     void shouldFindOfficers() throws JsonProcessingException {
         var input = "1234567890";
         TruProxyOfficerDto responseBody = new TruProxyOfficerDto(20, List.of(new TruProxyOfficerItemDto(
-                "Leandro", "any", "any", new TruProxyAddressDto("London", "HD3 3DW", "ANY", "ANY", "Italy"))));
+                "Leandro", "any", "any", null, new TruProxyAddressDto("London", "HD3 3DW", "ANY", "ANY", "Italy"))));
 
         var mockResponse = new MockResponse()
                 .addHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)

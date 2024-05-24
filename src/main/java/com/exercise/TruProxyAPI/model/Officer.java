@@ -3,15 +3,16 @@ package com.exercise.TruProxyAPI.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 
-public record Company(
+public record Officer(
+
         @Id
-        Long company_id,
+        Long officer_id,
         @Version
         Integer version,
-        String company_number,
-        String company_type,
-        String title,
-        String company_status,
-        String date_of_creation
+        String name,
+        String officer_role,
+        String appointed_on,
+
+        Long company_id
 ) {
 }
